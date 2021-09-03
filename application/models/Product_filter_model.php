@@ -60,13 +60,13 @@ class Product_filter_model extends CI_Model
 					<div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
 					<img src="'.base_url().'images/'. $row['image'] .'" alt="" class="img-responsive" >
 					<p align="center"><strong><a href="#">'. $row['item_name'] .'</a></strong></p>
-					<h4 style="text-align:center;" class="text-danger" >'. $row['price'] .'</h4>
+					<h4 style="text-align:center;" class="text-danger" >'. $row['price'] .'Kshs</h4>
 					<p>
 					Category : '. $row['category'] .' <br />
 					Size : '. $row['size'] .'<br />
 					Description: '.$row['description'].'<br/>
 					</p>
-					<button align="left" type="button" class="btn btn-success">Add-to-Cart</button>
+					<button align="left"name="add_to_cart" id="add_to_cart" class="btn btn-success">Add-to-Cart</button>
 					</div>
 				</div>
 				';

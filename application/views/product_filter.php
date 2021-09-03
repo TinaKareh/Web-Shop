@@ -74,8 +74,22 @@
 					} 
 					?>	
                 </div>
-            </div>
+				<div class="list-group">
+				<div class="panel panel-default">
+                      <div class="panel-heading">
+                                  <div class="row">
+                           <div class="col-md-6">Cart Details</div>
+                  <div class="col-md-6" align="right">
+                   <button type="button" name="clear_cart" id="clear_cart" class="btn btn-warning btn-xs">Clear</button>
+      </div>
+     </div>
+    </div>
+    <div class="panel-body" id="shopping_cart">
 
+    </div>
+   </div>
+                </div>
+            </div>
             <div class="col-md-9">
 				<br />
 				<div align="center" id="pagination_link">

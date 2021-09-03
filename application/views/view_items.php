@@ -41,12 +41,12 @@
 	<?php foreach ($items as $items): ?>
       <tr>
         <td><?=$items->item_id;?></td>
-        <td><img src="<?= $items->image?>"></td>
+        <td><img src="<?=base_url().'images/'. $items->image?>" width="100" height="100"></td>
         <td><?=$items->item_number?></td>
         <td><?=$items->item_name?></td>
         <td><?=$items->category?></td>
         <td><?=$items->size?></td>
-        <td><?=$items->price?></td>
+        <td><?=$items->price?>Kshs</td>
 		<td><?=$items->description?></td>
 		<td><?=$items->date_added?></td>
       </tr>

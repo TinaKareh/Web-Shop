@@ -63,7 +63,7 @@
         <td><?=$current['item_name'];?></td>
         <td><?=$current['category'];?></td>
         <td><?=$current['size'];?></td>
-        <td><?=$current['price'];?></td>
+        <td><?=$current['price'];?>Kshs</td>
       </tr>
 	  <?php endforeach; ?>
     </tbody>

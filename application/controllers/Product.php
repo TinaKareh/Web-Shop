@@ -35,6 +35,8 @@ class Product extends CI_Controller {
  $this->form_validation->set_rules('category', 'Category', 'required');
  $this->form_validation->set_rules('size', 'Item Size', 'required');
  $this->form_validation->set_rules('price', 'Item Price', 'required');
+ $this->form_validation->set_rules('status', 'Availabilty', 'required');
+
  
  if ($this->form_validation->run() == FALSE) {
     $data['categories'] = $this->Product_model->get_all();  
@@ -54,6 +56,7 @@ $data = array(
   'size' => $this->input->post('size'),
   'price' => $this->input->post('price'),
   'description' => $this->input->post('description'),
+  'status' => $this->input->post('status'),
   'date_added' =>$entry_date,
 );
 

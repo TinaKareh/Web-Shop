@@ -50,6 +50,13 @@
   <input type="file" id="img" name="img" accept="image/*">
 </div>
 <div class="form-group">
+      <label class="control-label col-sm-4" for="status">Availability <span>*</span>:</label>
+      <select class="form-control" id="focusedInput" name="status" required>
+        <option>Available</option>
+        <option>Out of Stock</option>
+      </select>
+</div>
+<div class="form-group">
 <label class="control-label col-sm-4" for="description">Item Description <span>*</span>:</label>  
 <textarea class="form-control" rows="5" id="focusedInput" name ='description'></textarea>
 </div>
