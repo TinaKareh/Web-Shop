@@ -57,7 +57,6 @@ $route['dashboard']='product/dashboard';
 $route['add-items']='product/addItems';
 $route['user-logout'] = 'signin/logout';
 $route['view-items'] = 'product/viewItems';
-$route['view-products'] ='product/fetch_data';
 
 
 

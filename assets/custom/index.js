@@ -15,21 +15,22 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+  filter_data(1);
    function filter_data(page){
 
-     $('#filter_data').html("<div id='loading'></div>");
+     $('.filter_data').html("<div id='loading'></div>");
      var action = 'fetch_data';
      var minimum_price = $('#hidden_minimum_price').val();
      var maximum_price = $('#hidden_maximum_price').val();
      var category = get_filter('category');
      var size = get_filter('size');
      $.ajax({
-       url:"<?php echp base_url();?>Product/fetch_data"+page,
+       url:"/product/fetch_data"+page,
        method:"POST",
        datatype: "JSON",
        data: {action:action,minimum_price:minimum_price,maximum_price:maximum_price,category:category,size:size},
        success:function(data){
-         $('.filter_data').html(data.product_list);
+         $('.filter_data').html(data.item_list);
          $('#pagination_link').html(data.pagination_link);
        }
      });
@@ -40,6 +41,6 @@ $(document).ready(function(){
      $('.'+class_name+'.checked').each(function(){
           filter.push($(this).val());
      });
-     return filter();
+     return filter;
    }
 });

@@ -56,14 +56,14 @@
       </tr>
     </thead>
     <tbody>
-	<?php foreach ($current as $items): ?>
+	<?php foreach ($current as $current): ?>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><?=$current['item_id'];?></td>
+        <td><?=$current['item_number'];?></td>
+        <td><?=$current['item_name'];?></td>
+        <td><?=$current['category'];?></td>
+        <td><?=$current['size'];?></td>
+        <td><?=$current['price'];?></td>
       </tr>
 	  <?php endforeach; ?>
     </tbody>

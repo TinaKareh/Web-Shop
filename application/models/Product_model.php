@@ -26,9 +26,13 @@ class Product_model extends CI_Model {
         return $query->num_rows();
     }
 
-    public function get_where($where) {
-        return $this->db->where($where)
-                        ->get($this->table)
-                        ->result();
+    function get_latest_items($current_date){
+        $this->db->select('items.*');
+        $this->db->from('items'); 
+        $this->db->where('date_added',$current_date);
+        
+        $query = $this->db->get();
+        
+        return($query->result_array());
     }
 }

@@ -59,7 +59,7 @@ class Signup extends CI_Controller
   if($role == 'Customer'){
 
    $this->session->set_userdata($data);
-  redirect(base_url('product'));
+  redirect(base_url('product_filter'));
 
   }else{
   

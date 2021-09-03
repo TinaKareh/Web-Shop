@@ -56,7 +56,7 @@ class Signin extends CI_Controller {
     redirect(base_url('dashboard')); 
  }
  
- redirect(base_url('product')); // redirect to home
+ redirect(base_url('product_filter')); // redirect to home
  exit;
  
  } 
