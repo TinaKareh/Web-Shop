@@ -53,6 +53,11 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['sign-in'] = 'signin/login';
+$route['dashboard']='product/dashboard';
+$route['add-items']='product/addItems';
+$route['user-logout'] = 'signin/logout';
+$route['view-items'] = 'product/viewItems';
+$route['view-products'] ='product/fetch_data';
 
 
 

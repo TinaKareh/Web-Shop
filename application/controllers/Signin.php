@@ -46,12 +46,17 @@ class Signin extends CI_Controller {
  'email_address' => $user->email_address,
  'phone_number' => $user->phone_number,
  'user_password' => $user->user_password,
+ 'role' => $user->role,
  );
  
  
  $this->session->set_userdata($data);
+
+ if($user->role == 'Vendor'){
+    redirect(base_url('dashboard')); 
+ }
  
- redirect(base_url('hello')); // redirect to home
+ redirect(base_url('product')); // redirect to home
  exit;
  
  } 

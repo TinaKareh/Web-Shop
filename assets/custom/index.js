@@ -1,23 +1,45 @@
-let slideIndex = 0;
-showSlides();
+$(document).ready(function() {
+  $('.nav-link-collapse').on('click', function() {
+    $('.nav-link-collapse').not(this).removeClass('nav-link-show');
+    $(this).toggleClass('nav-link-show');
+  });
+});
 
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  let slideCount = slideIndex - 1;
-  console.log(slideCount);
+$(document).ready(function(){
+  $("#my-input").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#my-table tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
 
-  //slides[slideCount].style.display = "block"; 
+$(document).ready(function(){
+   function filter_data(page){
 
-  //dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
+     $('#filter_data').html("<div id='loading'></div>");
+     var action = 'fetch_data';
+     var minimum_price = $('#hidden_minimum_price').val();
+     var maximum_price = $('#hidden_maximum_price').val();
+     var category = get_filter('category');
+     var size = get_filter('size');
+     $.ajax({
+       url:"<?php echp base_url();?>Product/fetch_data"+page,
+       method:"POST",
+       datatype: "JSON",
+       data: {action:action,minimum_price:minimum_price,maximum_price:maximum_price,category:category,size:size},
+       success:function(data){
+         $('.filter_data').html(data.product_list);
+         $('#pagination_link').html(data.pagination_link);
+       }
+     });
+   }
+
+   function get_filter(class_name){
+     var filter = [];
+     $('.'+class_name+'.checked').each(function(){
+          filter.push($(this).val());
+     });
+     return filter();
+   }
+});

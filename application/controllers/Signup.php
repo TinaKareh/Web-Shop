@@ -24,6 +24,8 @@ class Signup extends CI_Controller
  $this->form_validation->set_rules('fname', 'First Name', 'required');
  $this->form_validation->set_rules('lname', 'Last Name', 'required');
  $this->form_validation->set_rules('phone', 'Phone Number', 'required');
+ $this->form_validation->set_rules('role', 'Role', 'required');
+
 
 
 	  if ($this->form_validation->run() == TRUE) {
@@ -40,6 +42,7 @@ class Signup extends CI_Controller
       'first_name' => $this->input->post('fname'),
       'last_name' => $this->input->post('lname'),
       'email_address' => $this->input->post('email'),
+      'role' => $this->input->post('role'),
       'phone_number' => $this->input->post('phone'),
       'user_password' => $this->input->post('pass'),
       'city' => $this->input->post('city'),
@@ -49,11 +52,21 @@ class Signup extends CI_Controller
       'home_area' => $this->input->post('home'),
       'created_on' =>$entry_date,
   );
+  $role = $data['role'];
 
   $this->Register_model->insert($data);
 
-  redirect(base_url('sign-in'));
-		
+  if($role == 'Customer'){
+
+   $this->session->set_userdata($data);
+  redirect(base_url('product'));
+
+  }else{
+  
+    $this->session->set_userdata($data);
+    redirect(base_url('dashboard'));
+
+  }	
 	  }else{
       $this->load->view('customer_signup');
 		

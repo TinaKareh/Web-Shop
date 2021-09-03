@@ -6,15 +6,16 @@
   <!--<link rel = "stylesheet" href = "assets/bootstrap-3.4.1-dist/css/bootstrap.min.css">-->
   <link rel ="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel = "stylesheet" href = "assets/custom/index.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/assets/js/bootstrap.min.js"></script>
   <script src="/assets/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container my-5" style="width:750px">
+<div class="container my-2" style="width:750px">
   <div class="card bg-light text-dark custom">
-  <img class="card-img-top" src="assets/images/ecom.jpg" alt="Card image">
-  <h4 class="card-title font-italic" style="padding-left: 50px !important;">Login</h4>
+  <div class="card-header bg-success font-italic text-dark">Login</div>
+  <!--<img class="card-img-top" src="assets/images/ecom.jpg" alt="Card image">-->
     <div class="card-body">
 	<p class =" card-text text-info"><?php echo $this->session->flashdata('password_success'); ?></p>
      <form class="form-horizontal" style="padding-left: 70px !important;" method = "post">
@@ -41,19 +42,19 @@
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <button type="submit" class="btn btn-success btn-block">Login</button>
       </div>  
     </div>
 	<div align ="left" class="form-group">        
       <div class="col-sm-offset-2 col-sm-5">
-        <a href="<?=base_url('forgot_password');?>" class ="btn-link text-primary"> Forgot Password?</a>
+        <a href="<?=base_url('forgot_password');?>" class ="btn-link text-success"> Forgot Password?</a>
       </div>
 	  <p class ="text-danger"><?php echo $this->session->flashdata('login_error'); ?></p>
   </form>
   <br/>
    <div class ="div-custom" align ="right" style="padding: 20px !important;">
       <label class="control-label col-sm-13" for="signup">Don't have an account?</label>
-         <a href="<?= base_url('signup'); ?>"><span class="glyphicon glyphicon-log-in"></span> Register</a><br/>
+         <a class="text-success" href="<?= base_url('signup'); ?>"> Register<span class='fas fa-sign-in-alt' style='font-size:20px'></span></a><br/>
 	</div>
     </div>
   </div>
