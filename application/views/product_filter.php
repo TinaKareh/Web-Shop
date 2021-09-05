@@ -79,16 +79,16 @@
                       <div class="panel-heading">
                                   <div class="row">
                            <div class="col-md-6">Cart Details</div>
-                  <div class="col-md-6" align="right">
-                   <button type="button" name="clear_cart" id="clear_cart" class="btn btn-warning btn-xs">Clear</button>
+						   <div class="col-md-6" align="right">
+        <button type="button" name="clear_cart" id="clear_cart" class="btn btn-warning btn-xs">Clear</button>
       </div>
      </div>
     </div>
     <div class="panel-body" id="shopping_cart">
 
-    </div>
+	</div>
    </div>
-                </div>
+    </div>
             </div>
             <div class="col-md-9">
 				<br />
@@ -97,9 +97,18 @@
 				<br />
 				<br />
 				<br />
-                <div class="row filter_data">
-                
-                </div>
+				<div class="panel panel-default">
+				<div class="panel-heading">
+				<div class="row">
+				<div class="col-md-6">Product List</div>
+				<div class="col-md-6" align="right">
+       <button type="button" name="add_to_cart" id="add_to_cart" class="btn btn-success btn-xs">Add to Cart</button>
+				</div>
+				</div>
+				</div>
+                <div class=" panel-body row filter_data">
+            </div>
+				</div>
             </div>
         </div>
 
@@ -118,6 +127,8 @@ $(document).ready(function(){
 
 	filter_data(1);
 
+	load_cart_data();
+	
 	function filter_data(page)
 	{
 		$('.filter_data').html('<div id="loading" style="" ></div>');
@@ -174,8 +185,111 @@ $(document).ready(function(){
         filter_data(1);
     });
 
+	function load_cart_data()
+   {
+      $.ajax({
+      url:"<?php echo base_url(); ?>product_cart",
+      method:"POST",
+      success:function(data)
+     {
+       $('#shopping_cart').html(data);
+     }
+  });
+ }
 
+ $(document).on('click', '.select_product', function(){
+  var item_id = $(this).data('product_id');
+  if($(this).prop('checked') == true)
+  {
+   $('#item'+item_id).css('background-color', '#f1f1f1');
+   $('#item'+item_id).css('border-color', '#333');
+  }
+  else
+  {
+   $('#item'+item_id).css('background-color', 'transparent');
+   $('#item'+item_id).css('border-color', '#ccc');
+  }
+ });
 
+ $('#add_to_cart').click(function(){
+  var item_id = [];
+  var item_name = [];
+  var price = [];
+  var action = "add";
+  $('.select_product').each(function(){
+   if($(this).prop('checked') == true)
+   {
+    item_id.push($(this).data('product_id'));
+    item_name.push($(this).data('product_name'));
+    price.push($(this).data('product_price'));
+   }
+  });
+
+  if(item_id.length > 0)
+  {
+   $.ajax({
+    url:"<?php echo base_url();?>action",
+    method:"POST",
+    data:{item_id:item_id, item_name:item_name, price:price, action:action},
+    success:function(data)
+    {
+     $('.select_product').each(function(){
+      if($(this).prop('checked') == true)
+      {
+       $(this).attr('checked', false);
+       var temp_item_id = $(this).data('product_id');
+       $('#item'+temp_item_id).css('background-color', 'transparent');
+       $('#item'+temp_item_id).css('border-color', '#ccc');
+      }
+     });
+
+     load_cart_data();
+     alert("Item has been Added into Cart");
+    }
+   });
+  }
+  else
+  {
+   alert('Select atleast one item');
+  }
+
+ });
+
+ $(document).on('click', '.delete', function(){
+  var item_id = $(this).attr("id");
+  var action = 'remove';
+  if(confirm("Are you sure you want to remove this product?"))
+  {
+   $.ajax({
+    url:"<?php echo base_url();?>action",
+    method:"POST",
+    data:{item_id:item_id, action:action},
+    success:function()
+    {
+     load_cart_data();
+     alert("Item has been removed from Cart");
+    }
+   })
+  }
+  else
+  {
+   return false;
+  }
+ });
+
+ $(document).on('click', '#clear_cart', function(){
+  var action = 'empty';
+  $.ajax({
+   url:"<?php echo base_url();?>action",
+   method:"POST",
+   data:{action:action},
+   success:function()
+   {
+    load_cart_data();
+    alert("Your Cart has been clear");
+   }
+  });
+ });
 });
 </script>
 

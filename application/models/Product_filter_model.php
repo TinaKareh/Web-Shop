@@ -57,16 +57,16 @@ class Product_filter_model extends CI_Model
 			{
 				$output .= '
 				<div class="col-sm-4 col-lg-3 col-md-3">
-					<div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
+					<div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;" id="item_'.$row["item_id"].'">
 					<img src="'.base_url().'images/'. $row['image'] .'" alt="" class="img-responsive" >
-					<p align="center"><strong><a href="#">'. $row['item_name'] .'</a></strong></p>
+					<p align="center"><strong><input type="checkbox" class="select_product" data-product_id="'.$row["item_id"].'" data-product_name="'.$row["item_name"].'" data-product_price="'.$row["price"] .'" value="">
+					<a href="#">'. $row['item_name'] .'</a></strong></p>
 					<h4 style="text-align:center;" class="text-danger" >'. $row['price'] .'Kshs</h4>
 					<p>
 					Category : '. $row['category'] .' <br />
 					Size : '. $row['size'] .'<br />
 					Description: '.$row['description'].'<br/>
 					</p>
-					<button align="left"name="add_to_cart" id="add_to_cart" class="btn btn-success">Add-to-Cart</button>
 					</div>
 				</div>
 				';
