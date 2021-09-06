@@ -45,8 +45,8 @@
 					<input type="hidden" id="hidden_maximum_price" value="10000" />
 					<p id="price_show">100 - 10000</p>
 	                <div id="price_range"></div>
-                </div>				
-                <div class="list-group">
+        </div>				
+        <div class="list-group">
 					<h3>Category</h3>
 					<?php
 					foreach($category_data->result_array() as $row)
@@ -59,8 +59,7 @@
 					<?php 
 					} 
 					?>
-                </div>
-
+        </div>
 				<div class="list-group">
 					<h3>Size</h3>
 					<?php
@@ -73,12 +72,19 @@
 					<?php 
 					} 
 					?>	
-                </div>
-				<div class="list-group">
-				<div class="panel panel-default">
-                      <div class="panel-heading">
-                                  <div class="row">
-                           <div class="col-md-6">Cart Details</div>
+        </div>
+        </div>
+        <div class="col-md-9">
+				<br />
+				<div align="center" id="pagination_link">
+
+				</div>
+				<br />
+				<br />
+        <div class="panel panel-default">
+          <div class="panel-heading">
+              <div class="row">
+                 <div class="col-md-6">Cart Details</div>
 						   <div class="col-md-6" align="right">
         <button type="button" name="clear_cart" id="clear_cart" class="btn btn-warning btn-xs">Clear</button>
       </div>
@@ -88,21 +94,13 @@
 
 	</div>
    </div>
-    </div>
-            </div>
-            <div class="col-md-9">
-				<br />
-				<div align="center" id="pagination_link">
-				</div>
-				<br />
-				<br />
 				<br />
 				<div class="panel panel-default">
 				<div class="panel-heading">
 				<div class="row">
 				<div class="col-md-6">Product List</div>
 				<div class="col-md-6" align="right">
-       <button type="button" name="add_to_cart" id="add_to_cart" class="btn btn-success btn-xs">Add to Cart</button>
+       <button type="button" name="add_to_cart" id="add_to_cart" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</button>
 				</div>
 				</div>
 				</div>

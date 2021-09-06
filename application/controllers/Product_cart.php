@@ -28,9 +28,9 @@ class Product_cart extends CI_Controller {
  <table class="table table-bordered table-striped">
   <tr>  
             <th width="40%">Product Name</th>  
-            <th width="20%">Price</th>  
-            <th width="15%">Total</th>  
-            <th width="5%">Action</th>  
+            <th width="25%">Price</th>  
+            <th width="20%">Total</th>  
+            <th width="15%">Action</th>  
         </tr>
 ';
 if(!empty($_SESSION["shopping_cart"]))
@@ -67,6 +67,11 @@ else
     ';
 }
 $output .= '</table></div>';
+
+$output .= '
+       <button type="button" name="checkout" id="checkout" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-credit-card"></span> Checkout</button>
+';
+
 
 echo $output;
 //echo '<pre>';

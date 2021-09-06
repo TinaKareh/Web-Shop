@@ -18,7 +18,7 @@
     ?>
 <main class ="content-wrapper">
 <div class ="container-fluid">
-<div class="col-sm-4">
+<div class="col-sm-4"><span class="glyphicon glyphicon-search"></span>
 <input class="form-control" id="my-input" type="text" placeholder="Search..">
 </div>
 </br>
