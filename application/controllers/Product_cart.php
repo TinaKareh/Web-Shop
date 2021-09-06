@@ -26,7 +26,7 @@ class Product_cart extends CI_Controller {
   $output = '
 <div class="table-responsive" id="order_table">
  <table class="table table-bordered table-striped">
-  <tr>  
+        <tr>  
             <th width="40%">Product Name</th>  
             <th width="25%">Price</th>  
             <th width="20%">Total</th>  

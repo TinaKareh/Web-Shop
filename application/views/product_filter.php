@@ -29,7 +29,7 @@
       <a class="navbar-brand" href="#">Furistic Shop</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?=$this->session->userdata('first_name');?> <?=$this->session->userdata('last_name');?></a></li>
+      <li><a id="customer_name" value="<?=$this->session->userdata('email_address');?>" href="#"><span class="glyphicon glyphicon-user"></span> <?=$this->session->userdata('first_name');?> <?=$this->session->userdata('last_name');?></a></li>
       <li><a href="<?= base_url('user-logout'); ?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
@@ -213,6 +213,7 @@ $(document).ready(function(){
   var item_id = [];
   var item_name = [];
   var price = [];
+  var email_address = $('#customer_name').val();
   var action = "add";
   $('.select_product').each(function(){
    if($(this).prop('checked') == true)
@@ -228,7 +229,7 @@ $(document).ready(function(){
    $.ajax({
     url:"<?php echo base_url();?>action",
     method:"POST",
-    data:{item_id:item_id, item_name:item_name, price:price, action:action},
+    data:{item_id:item_id, item_name:item_name, price:price,email_address:email_address, action:action},
     success:function(data)
     {
      $('.select_product').each(function(){
@@ -288,6 +289,7 @@ $(document).ready(function(){
    }
   });
  });
+
 });
 </script>
 

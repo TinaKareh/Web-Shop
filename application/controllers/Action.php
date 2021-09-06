@@ -11,7 +11,7 @@ class Action extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->library('session');
-        $this->load->library('cart');
+         $this->load->library('cart');
         $this->load->helper('date');
         $this->load->model('Product_model');
         $this->load->model('Product_filter_model');
@@ -19,7 +19,7 @@ class Action extends CI_Controller {
 	
 	function index()
 	{
-session_start();
+     session_start();
 
 if(isset($_POST["action"]))
 {
@@ -33,7 +33,7 @@ if(isset($_POST["action"]))
    $cart_product_id = array_keys($_SESSION["shopping_cart"]);
    if(in_array($item_id[$count], $cart_product_id))
    {
-    $_SESSION["shopping_cart"][$item_id[$count]]++;
+    $_SESSION["shopping_cart"][$item_id[$count]]['product_quantity']++;
    }
    else
    {
@@ -45,7 +45,6 @@ if(isset($_POST["action"]))
 
     $_SESSION["shopping_cart"][$item_id[$count]] = $item_array;
 
-    
    }
   }
  }

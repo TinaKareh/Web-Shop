@@ -39,7 +39,7 @@ class Signin extends CI_Controller {
  }
  
  $data = array(
- 'custoner_id' =>$user->customer_id,
+ 'customer_id' =>$user->customer_id,
  'user_name' => $user->user_name,
  'first_name' => $user->first_name,
  'last_name' => $user->last_name,
