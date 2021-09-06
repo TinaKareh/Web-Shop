@@ -17,7 +17,7 @@
   <div class="card-header bg-success font-italic text-dark">Login</div>
   <!--<img class="card-img-top" src="assets/images/ecom.jpg" alt="Card image">-->
     <div class="card-body">
-	<p class =" card-text text-info"><?php echo $this->session->flashdata('password_success'); ?></p>
+	<p class =" card-text text-success"><?php echo $this->session->flashdata('password_success'); ?></p>
      <form class="form-horizontal" style="padding-left: 70px !important;" method = "post">
     <div class="form-group">
       <label class="control-label col-sm-4" for="email">Email <span>*</span>:</label>
